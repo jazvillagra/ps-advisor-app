@@ -191,3 +191,27 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+//apply plugin:'org.sonarqube'
+
+//sonarqube {
+//    properties {
+//        property "sonar.projectKey", "ps-advisor-app"
+//        property "sonar.projectName", "ps-advisor-app"
+//        property "sonar.projectVersion", android.defaultConfig.versionName
+//        property "sonar.sources", "src/main"
+//        property "sonar.dependencyCheck.reportPath", "${projectDir}/build/reports/dependency-check-report.xml"
+//    }
+//}
+
+apply plugin: 'org.owasp.dependencycheck'
+
+dependencyCheck {
+        autoUpdate=false
+        cveValidForHours=12
+        format='ALL'
+//	data{
+//		connectionString = 'jdbc:h2:file:///tmp/dc;AUTOCOMMIT=ON;'
+//	}
+}
+
